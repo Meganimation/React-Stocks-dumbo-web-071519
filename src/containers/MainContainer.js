@@ -11,15 +11,24 @@ class MainContainer extends Component {
     portfolioStocks: []
   }
 
-  // changeBox=(event)=>{
-  //   console.log(event.target.value)
-  //   this.state.stocks.sort()
-  //   this.setState({
-  //    checked: event.target.value,
-  //     stocks: this.state.stocks
-  //   });
-  //   //this is not working
-  // }
+  addPortfolio = (e) => {
+    if (this.state.portfolioStocks.includes(e)) {
+      console.log("done");
+    } else {
+      this.setState({
+        portfolioStocks: [...this.state.portfolioStocks, e]
+      });
+    }
+  };
+
+  removeItem = (stock) => {
+  const newPortfolio = this.state.portfolioStocks.filter(stockk => stockk.id !== stock.id);
+  this.setState({
+    portfolioStocks: newPortfolio
+  });
+};
+
+
 
   sortStocks = (event) => {
 
@@ -76,12 +85,14 @@ const stocks = this.state.filteredStocks ? this.handleFilter : this.state.stocks
 
           <div className="row">
             <div className="col-8">
-              <StockContainer stocks={this.state.displayStocks} handleClick={this.handleClick }/>
+              <StockContainer stocks={this.state.displayStocks} handleClick={this.handleClick }  addPortfolio={this.addPortfolio}/>
 
             </div>
             <div className="col-4">
 
-              <PortfolioContainer portfolio={this.state.portfolio} checked={this.state.checked} handleClick={this.handleClick}/>
+              <PortfolioContainer portfolio={this.state.portfolio} checked={this.state.checked} 
+              portfolioStocks={this.state.portfolioStocks}
+              removeItem={this.removeItem} />
 
             </div>
           </div>
