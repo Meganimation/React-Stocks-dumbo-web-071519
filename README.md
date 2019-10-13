@@ -12,10 +12,22 @@ TO START: json-server --watch db.json
 ```
 
 After the stocks are fetched, your job is to:
-* Render all the stocks onto the page. The styling of how a Stock should look like is already in the `Stock.js` component.
+Done Render all the stocks onto the page. The styling of how a Stock should look like is already in the `Stock.js` component.
 * allow a user to buy a stock by clicking on it and when it is bought, it should be added to `My Portfolio`.
+
+// Not done, can click on a portfolio item but not sure how to render it into the other place yet.
+
+
 * allow a user to sell a stock in their `Portfolio` by clicking on the stock and it should be removed from their `Portfolio`.
+
+//Not done yet
+
 * allow a user to sort the list of stocks alphabetically by the ticker name as well as by ascending price.
+
+Done
+
 * allow a user to filter stocks based on the type of the stock.
+Done
+
 
 Best of luck!
